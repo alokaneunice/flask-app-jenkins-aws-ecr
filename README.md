@@ -28,7 +28,8 @@ https://github.com/alokaneunice/flask-app-jenkins-aws-ecr.git
 ### STAGE 1
 #### Step 1
 
-Created a python application, 
+Created a python application
+
 collected all the project dependencies or libraries for the project and stored inside "requirements.txt"
 
 pip freeze >> requirements.txt
@@ -36,9 +37,12 @@ pip freeze >> requirements.txt
 #### Step 2
 
 run and test the project locally , to ensure it is working
+
 i. $ python app.py
 
 ii. localhost:5002
+
+#### Step 3
 
 created a dockerfile to build docker image for the project
 
@@ -52,9 +56,8 @@ $ docker run --name web-container -dp port 5002:5002 <imagename>:latest
 to exec into the container
 
  $ docker exec web-container -- sh
- $ exit
 
-#### Step 3
+ $ exit
 
 run the following command to build the docker image in the jenkins pipeline.
 
@@ -63,16 +66,23 @@ dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
 #### Step 4
 
 to provision ec2 instance called jenkins-server using terraform
+
  $ cd infra 
+
  $ ls
 
  <img width="456" height="404" alt="Image" src="https://github.com/user-attachments/assets/a1becef4-1ab0-4fcb-86d6-6a43885cc248" />
 
  #### Step 5
+ 
  to run terraform commands
+
   $ terraform init
+
   $ terraform fmt
+
   $ terraform plan
+
   $ terraform apply --auto-approve
 
 ### STAGE 2
